@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -60,19 +59,19 @@ abstract class ScheduleEvent extends Equatable {
 }
 
 class FetchSchedule extends ScheduleEvent {
-  final String city;
+  final String id;
 
-  FetchSchedule({@required this.city})
-      : assert(city != null),
-        super([city]);
+  FetchSchedule({@required this.id})
+      : assert(id != null),
+        super([id]);
 }
 
 class RefreshSchedule extends ScheduleEvent {
-  final String city;
+  final String id;
 
-  RefreshSchedule({@required this.city})
-      : assert(city != null),
-        super([city]);
+  RefreshSchedule({@required this.id})
+      : assert(id != null),
+        super([id]);
 }
 
 class ModifySchedule extends ScheduleEvent {
@@ -95,13 +94,12 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
 
   @override
   Stream<ScheduleState> mapEventToState(
-      ScheduleState currentState,
       ScheduleEvent event,
       ) async* {
     if (event is FetchSchedule) {
       yield ScheduleLoading();
       try {
-        final Schedule schedule = await scheduleRepository.getSchedule(event.city);
+        final Schedule schedule = await scheduleRepository.getSchedule(event.id);
         yield ScheduleLoaded(schedule: schedule);
       } catch (_) {
         yield ScheduleError();
@@ -118,15 +116,15 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
       }
       */
       yield ScheduleLoading();
-      Schedule schedule = await scheduleRepository.getSchedule(event.city);
-      schedule.activity=event.city;
+      Schedule schedule = await scheduleRepository.getSchedule(event.id);
+      schedule.activity=event.id;
       yield ScheduleLoaded(schedule: schedule);
     }
 
     if (event is ModifySchedule){
       if(currentState is ScheduleLoaded) {
         yield ScheduleLoading();
-        Schedule schedule = currentState.schedule;
+        Schedule schedule = (currentState as ScheduleLoaded).schedule;
         // create a new schedule object with original values and new values
         final props=schedule.asMap();
         props.addAll(event.vars);

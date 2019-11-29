@@ -9,7 +9,7 @@ class GrpcClientSingleton {
 
   GrpcClientSingleton._internal() {
     client = ClientChannel("192.168.1.100",
-        port: 50051,
+        port: 5051,
         options: ChannelOptions(
           //TODO: Change to secure with server certificates
           credentials: ChannelCredentials.insecure(),

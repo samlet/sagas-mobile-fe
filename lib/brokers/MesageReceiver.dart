@@ -14,7 +14,7 @@ class MessageReceiver{
         .then((Channel channel) => channel.queue("hello"))
         .then((Queue queue) => queue.consume())
         .then((Consumer consumer) {
-      print(" [*] Waiting for messages..");
+      print(" [*] MessageReceiver waiting for messages..");
       consumer.listen((AmqpMessage message) {
         print(" [x] Received ${message.payloadAsString}");
       });

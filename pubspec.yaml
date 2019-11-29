@@ -1,5 +1,5 @@
 name: catalog
-description: A collection of Flutter sample apps
+description: sagas apps
 
 environment:
   # The pub client defaults to an <2.0.0 sdk constraint which we need to explicitly overwrite.
@@ -18,7 +18,8 @@ dependencies:
   english_words: ^3.1.0
   # graphql_flutter: ^0.9.5
   graphql_flutter: ^1.0.0-beta.1+1
-  rxdart: ^0.18.1
+  # rxdart: ^0.18.1
+  rxdart: ^0.21.0
   equatable: 0.1.6
   url_launcher: ^4.0.3
 
@@ -30,11 +31,16 @@ dependencies:
   fluttertoast: ^2.0.7
   image_picker: ^0.4.6
   shared_preferences: ^0.5.1+1
+  keyboard_visibility:
   cached_network_image: ^0.6.1
 
   # common
   intl: ^0.15.7
   decimal: ^0.3.0
+  tuple:
+
+  # storage
+  sqflite: ^1.1.0
 
   # amqp
   dart_amqp: ^0.1.1
@@ -42,11 +48,13 @@ dependencies:
   # grpc
   # async: '>=1.13.3 <3.0.0'
   grpc: ^1.0.0
-  protobuf: ^0.10.1
+  protobuf: ^0.13.4
 
   # bloc
-  bloc: ^0.9.0
-  flutter_bloc: ^0.6.0
+  # bloc: ^0.9.5
+  bloc: ^0.11.0
+  # flutter_bloc: ^0.7.1
+  flutter_bloc: ^0.9.0
 
   # speech
   # speech_recognition: "^0.3.0"
@@ -54,9 +62,26 @@ dependencies:
 
   # charts
   charts_flutter: ^0.6.0
+  # flutter_sparkline: "^0.0.4"
+  flutter_sparkline: ^0.1.0
+  # flutter_staggered_grid_view: "^0.1.4"
+  flutter_staggered_grid_view: ^0.2.7
 
-  sagas_common:
-      path: ../sagas_common/
+  # value
+  built_value:
+  built_collection:
+
+  # notification
+  flutter_local_notifications:
+
+  # images
+  photo_view:
+
+  # calendar
+  table_calendar: ^0.2.2
+
+  # sagas_common:
+  #    path: ../sagas_common/
   sagas_meta:
       path: ../sagas_meta/
   user_repository:
@@ -76,16 +101,19 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-  - images/img_not_available.jpeg
-  - images/mimi1.gif
-  - images/mimi2.gif
-  - images/mimi3.gif
-  - images/mimi4.gif
-  - images/mimi5.gif
-  - images/mimi6.gif
-  - images/mimi7.gif
-  - images/mimi8.gif
-  - images/mimi9.gif
+  - data/prefabs/_entities.data
+  - data/prefabs/ofbizDemo.data
+#  - images/img_not_available.jpeg
+#  - images/mimi1.gif
+#  - images/mimi2.gif
+#  - images/mimi3.gif
+#  - images/mimi4.gif
+#  - images/mimi5.gif
+#  - images/mimi6.gif
+#  - images/mimi7.gif
+#  - images/mimi8.gif
+#  - images/mimi9.gif
+  - images/
   - packages/flutter_gallery_assets/people/ali_landscape.png
   - packages/flutter_gallery_assets/logos/flutter_white/logo.png
   - packages/flutter_gallery_assets/videos/bee.mp4
@@ -190,6 +218,15 @@ flutter:
   - packages/shrine_images/37-0.jpg
 
   fonts:
+  - family: Poppins
+    fonts:
+    - asset: fonts/poppins/Poppins-Regular.ttf
+    - asset: fonts/poppins/Poppins-Bold.ttf
+      weight: 700
+    - asset: fonts/poppins/Poppins-Medium.ttf
+    - asset: fonts/poppins/Poppins-Italic.ttf
+      style: italic
+
   - family: Raleway
     fonts:
     - asset: packages/flutter_gallery_assets/fonts/raleway/Raleway-Regular.ttf

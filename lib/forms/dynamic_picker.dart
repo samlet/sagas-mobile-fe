@@ -74,7 +74,7 @@ class _DateAndTimePickerDemoState extends State<DateAndTimePickerDemo> {
               bloc: _scheduleBloc,
               builder: (_, ScheduleState state) {
                 if (state is ScheduleEmpty) {
-                  _scheduleBloc.dispatch(FetchSchedule(city: "hi"));
+                  _scheduleBloc.dispatch(FetchSchedule(id: "hi"));
                   return Center(child: CircularProgressIndicator());
                 }
                 if (state is ScheduleLoading) {

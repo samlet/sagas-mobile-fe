@@ -48,6 +48,7 @@ class _DssScaffoldState extends State<DssScaffold> {
   }
 
   void _handleButtonPress() {
+    _postBloc.dispatch(Fetch());
     setState(() {});
   }
 

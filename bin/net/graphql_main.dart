@@ -1,3 +1,4 @@
+/*
 import 'package:sagas_common/graphql_client/client.dart';
 import 'package:sagas_common/queries/readRepositories.dart' as queries;
 import 'package:sagas_common/graphql_client/in_memory.dart';
@@ -22,3 +23,6 @@ Future main() async {
     print(repo);
   }
 }
+*/
+
+void main(){}
