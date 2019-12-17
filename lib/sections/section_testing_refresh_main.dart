@@ -12,6 +12,7 @@ import 'package:sagas_meta/sagas_bloc.dart';
 import 'package:sagas_meta/sagas_meta.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:catalog/forms/receiver_model.dart';
+import "package:dart_amqp/dart_amqp.dart";
 
 class SimpleBlocDelegate extends BlocDelegate {
   @override

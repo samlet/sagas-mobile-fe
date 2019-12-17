@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sagas_meta/sagas_bloc.dart';
 import 'package:sagas_meta/sagas_meta.dart';
 import 'package:user_repository/user_repository.dart';
+import "package:dart_amqp/dart_amqp.dart";
 
 class SimpleBlocDelegate extends BlocDelegate {
   @override
