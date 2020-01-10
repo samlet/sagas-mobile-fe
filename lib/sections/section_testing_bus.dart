@@ -52,9 +52,11 @@ class SectionTestingPageState extends State<SectionTestingPage> {
 
     // _client = new Client(settings: settings);
     // _bus=new MessageBus(client: _client);
+    var sett=widget.messageBus.client.settings;
     _blackboardBloc = BlackboardBloc(
         messageBus: widget.messageBus,
-        brokerClient: BrokerClient('blue_queue'),
+        // brokerClient: BrokerClient('blue_queue'),
+        brokerClient: BrokerClient('blue_queue', client: Client(settings: sett)),
         indicatorBloc: widget.indicatorBloc,
         responserBloc: _responserBloc);
   }
